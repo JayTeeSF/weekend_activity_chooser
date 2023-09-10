@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekend Activities</title>
+    <style>
+/* Add your CSS styles here */
+    </style>
+  </head>
+  <body>
+    <div id="main-screen">
+      <h1>Weekend Activities</h1>
+      <button onclick="chooseActivity()">Choose an Activity</button>
+      <div id="activity-result">
+        <!-- Activity result will be displayed here -->
+      </div>
+    </div>
+
+    <div id="schedule-screen" style="display: none;">
+      <!-- Schedule screen content goes here -->
+    </div>
+
+    <div id="rating-screen" style="display: none;">
+      <!-- Rating screen content goes here -->
+    </div>
+
+    <div id="edit-screen" style="display: none;">
+      <!-- Edit screen content goes here -->
+    </div>
+
+    <script>
+      // Sample activities data
+      const activities = [
+        {
+          "Activity": "Eating Healthy Breakfast",
+          "Last Recommended": "2023-09-01",
+          "JT Rating History": "4,4,5,3,4,5,4",
+          "Ayo Rating History": "4,4,5,3,4,5,4",
+          "Good for Health": 5,
+          "Cost": 3,
+          "Enjoyability": 4,
+          "Approximate Time (minutes)": 45,
+          "Image URL": "https://example.com/healthy_breakfast.jpg"
+        },
+        {
+          "Activity": "Ice Cream at Salt and Straw",
+          "Last Recommended": "2023-08-15",
+          "JT Rating History": "4,4,5,3,4,5,4",
+          "Ayo Rating History": "4,4,5,3,4,5,4",
+          "Good for Health": 2,
+          "Cost": 2,
+          "Enjoyability": 4,
+          "Approximate Time (minutes)": 45,
+          "Image URL": "https://example.com/salt_and_straw.jpg"
+        },
+        {
+          "Activity": "Hiking in Redwood Park",
+          "Last Recommended": "2023-08-10",
+          "JT Rating History": "4,4,5,3,4,5,4",
+          "Ayo Rating History": "4,4,5,3,4,5,4",
+          "Good for Health": 5,
+          "Cost": 1,
+          "Enjoyability": 5,
+          "Approximate Time (minutes)": 180,
+          "Image URL": "https://example.com/hiking.jpg"
+        },
+        // Add more activities here
+      ];
+      function chooseActivity() {
+        const randomIndex = Math.floor(Math.random() * activities.length);
+        const chosenActivity = activities[randomIndex];
+        // Display the chosen activity on the result div
+        const resultDiv = document.getElementById("activity-result");
+        resultDiv.innerHTML = `<h2>${chosenActivity["Activity"]}</h2>`;
+        // You can add more details and options here
+      }
+
+      // You can add functions for scheduling, rating, and editing activities here
+
+      // Initialize the app by choosing an activity
+      chooseActivity();
+    </script>
+  </body>
+</html>
