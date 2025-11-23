@@ -3246,8 +3246,24 @@
         const chosenActivity = activities[randomIndex];
         // Display the chosen activity on the result div
         const resultDiv = document.getElementById("activity-result");
-        resultDiv.innerHTML = `<h2>${chosenActivity["Activity"]}</h2>`;
+
+        // Prefer URL; fall back to Image URL; finally '#'
+        const url = chosenActivity.URL || chosenActivity["Image URL"] || "#";
+
+        // resultDiv.innerHTML = `<h2>${chosenActivity["Activity"]}</h2>`;
         // You can add more details and options here
+        resultDiv.innerHTML = `
+          <h2>
+          <a href="${url}" target="_blank" rel="noopener noreferrer">
+        ${chosenActivity["Activity"]}
+          </a>
+          </h2>
+        ${chosenActivity.Category || chosenActivity.Area ? `
+            <p>
+          ${chosenActivity.Category ? chosenActivity.Category : ""}
+          ${chosenActivity.Area ? " · " + chosenActivity.Area : ""}
+            </p>` : ""}
+        `;
       }
 
       // You can add functions for scheduling, rating, and editing activities here
